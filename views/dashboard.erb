@@ -1,0 +1,35 @@
+<h1>Howdy, <%= @user.first_name %>!!!</h1>
+
+<h2>All TV Shows</h2>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Network</th>
+      <th>Release Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tv_shows.each do |tv_show| %>
+      <tr>
+        <td><%= tv_show.title %></td>
+        <td><%= tv_show.network %></td>
+        <td><%= tv_show.release_date %></td>
+        <td>
+          <a href="/shows/<%= tv_show.id %>">Show</a>
+
+          <a href="/edit/<%= tv_show.id %>">Edit</a>
+
+          <a href="/delete/<%= tv_show.id %>">Delete</a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<a href="/new_show">Add a New Show</a>
+
+<form action="/logout" method="post">
+  <input type="submit" value="Logout">
+</form>
