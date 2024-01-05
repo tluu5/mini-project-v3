@@ -74,7 +74,7 @@ end
 # Route to handle the form submission and create a new show
 post '/new_show' do
 
-  # Creste a new TV show with the provided parameters
+  # Create a new TV show with the provided parameters
   @show = TvShow.new(
     title: params[:title],
     network: params[:network],
