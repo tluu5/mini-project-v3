@@ -3,13 +3,35 @@ require "sinatra/reloader"
 require "sinatra/activerecord"
 require './models/user'
 require './models/tv_show'
-require './config/environment'
 require 'bcrypt'
 
-configure :production do
-  # Set your production database configuration here
-  # Example:
-  # set :database, 'postgres://username:password@localhost/mydatabase'
+# Configure the database connection
+set :database_file, 'config/database.yml'
+
+# Enable sessions
+enable :sessions
+
+# Define the User model
+class User < ActiveRecord::Base
+  validates_presence_of :first_name, :last_name, :email, :password
+  validates_length_of :first_name, :last_name, minimum: 3
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates_length_of :password, minimum: 8
+
+  #Hash the password before saving
+  before_save :hash_password
+
+  private
+
+  def hash_password
+    self.password = BCrypt::Password.create(password)
+  end
+end
+
+# Define a TvShow model
+class TvShow < ActiveRecord::Base
+  validates_presence_of :title, :network, :release_date, :description
+  validates_length_of :title, :network, :description, minimum: 3
 end
 
 get '/' do

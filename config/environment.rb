@@ -29,8 +29,8 @@ configure :development do
   AppdevSupport.init
 end
 
-configure :production do
+#configure :production do
   # Set your production database configuration here
   # Example:
   # set :database, 'postgres://username:password@localhost/mydatabase'
-end
+#end
