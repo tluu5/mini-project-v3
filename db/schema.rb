@@ -16,8 +16,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_05_164142) do
     t.string "network"
     t.string "release_date"
     t.text "description"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tv_shows_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -29,4 +31,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_05_164142) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "tv_shows", "users"
 end

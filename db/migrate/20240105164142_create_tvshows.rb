@@ -5,6 +5,7 @@ class CreateTvshows < ActiveRecord::Migration[7.0]
       t.string :network
       t.string :release_date
       t.text :description
+      t.belongs_to :user, foreign_key: true
 
       t.timestamps
     end

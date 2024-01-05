@@ -11,23 +11,6 @@ set :database_file, 'config/database.yml'
 # Enable sessions
 enable :sessions
 
-# Define the User model
-class User < ActiveRecord::Base
-  validates_presence_of :first_name, :last_name, :email, :password
-  validates_length_of :first_name, :last_name, minimum: 3
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates_length_of :password, minimum: 8
-
-  #Hash the password before saving
-  before_save :hash_password
-
-  private
-
-  def hash_password
-    self.password = BCrypt::Password.create(password)
-  end
-end
-
 get '/' do
   erb :index
 end
@@ -84,7 +67,6 @@ end
 
 # Route to display the form for adding a new show
 get '/new_show' do
-
   erb :new_show
 end
 
@@ -99,7 +81,8 @@ post '/new_show' do
     description: params[:description]
   )
 
-  if @show.save
+  if @show.save && @user
+    session[:user_id] = @user.id
     redirect '/dashboard'
   else
     @error_messages = @show.errors.full_messages
@@ -131,8 +114,8 @@ end
 # Route to handle the form submission and update a show
 post '/edit/:id' do
 
-  # Find the TV show by ID
-  @show = TvShow.find(params[:id])
+  # Find the show by ID and user ID
+  @show = TvShow.find_by(id: params[:id])
 
   # Update the TV show with the provided parameters
   @show.title = params[:title]
@@ -140,7 +123,8 @@ post '/edit/:id' do
   @show.release_date = params[:release_date]
   @show.description = params[:description]
 
-  if @show.save
+  if @show.save && @user
+    session[:user_id] = @user.id
     redirect '/dashboard'
   else
     @error_messages = @show.errors.full_messages
