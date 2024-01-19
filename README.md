@@ -41,3 +41,4 @@ Will test this setup
 6> bundle exec rake db:migrate
 (Use only once. If you miss including a string, start a new codespace again)
 
+hi hi 
