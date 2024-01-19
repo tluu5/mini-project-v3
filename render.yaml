@@ -1,7 +1,22 @@
+databases:
+  - name: mini_project
+    databaseName: mini_project
+    user: mini_project
+    plan: free
+
 services:
   - type: web
-    name: MYAPPNAME # the name of this service, eg hello-world
-    env: ruby # this app is written in ruby
-    plan: free # make sure to set this to free or you'll get billed $$$
-    buildCommand: "./bin/render-build.sh" # # we already created these two files for you
+    plan: free
+    name: mini_project
+    runtime: ruby
+    buildCommand: "./bin/render-build.sh"
     startCommand: "./bin/render-start.sh"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: mini_project
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: WEB_CONCURRENCY
+        value: 2
