@@ -78,11 +78,11 @@ post '/new_show' do
     title: params[:title],
     network: params[:network],
     release_date: params[:release_date],
-    description: params[:description]
+    description: params[:description],
+    user_id: session[:user_id]
   )
 
-  if @show.save && @user
-    session[:user_id] = @user.id
+  if @show.save
     redirect '/dashboard'
   else
     @error_messages = @show.errors.full_messages
