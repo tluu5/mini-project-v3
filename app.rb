@@ -55,7 +55,6 @@ post '/login' do
 end
 
 get '/dashboard' do
-
   # Retrieve the logged-in user
   @user = User.find(session[:user_id])
 
