@@ -122,7 +122,7 @@ post '/edit/:id' do
   @show.release_date = params[:release_date]
   @show.description = params[:description]
 
-  if @show.save
+  if @show.save && @user
     session[:user_id] = @user.id
     redirect '/dashboard'
   else
