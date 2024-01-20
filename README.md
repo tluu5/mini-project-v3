@@ -1,21 +1,3 @@
-# sinatra-template
-
-Use this repository to create new Sinatra apps. 
-
-Optionally, to use `ActiveRecord` for database operations, add to the `app.rb`:
-
-```ruby
-require "sinatra/activerecord"
-```
-
-And in the `config/environment.rb` file add this code block:
-
-```ruby
-configure do
-  # setup a database connection
-  set(:database, { adapter: "sqlite3", database: "db/development.sqlite3" })
-end
-```
 1> touch Rakefile
 require './app'
 require 'sinatra/activerecord/rake'
@@ -41,4 +23,3 @@ Will test this setup
 6> bundle exec rake db:migrate
 (Use only once. If you miss including a string, start a new codespace again)
 
-hi hi 
