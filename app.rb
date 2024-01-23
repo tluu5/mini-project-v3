@@ -4,6 +4,8 @@ require "sinatra/activerecord"
 require './models/user'
 require './models/tv_show'
 require 'bcrypt'
+require 'http'
+require 'json'
 
 # Configure the database connection
 set :database_file, 'config/database.yml'
