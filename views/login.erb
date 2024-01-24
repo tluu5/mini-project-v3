@@ -1,8 +1,11 @@
-<h1>Login</h1>
+<link rel="stylesheet" href="/styles.css"
+<h1 id="login-header">Login</h1>
+
 <% if @error_message %>
   <p style="color: red;"><%= @error_message %></p>
 <% end %>
-<form action="/login" method="post">
+
+<form id="login-section" action="/login" method="post">
   <label for="email">Email:</label>
   <input type="email" name="email" required><br>
 
@@ -11,4 +14,5 @@
 
   <input type="submit" value="Login">
 </form>
+
 <p><a href="/">Back to Home</a></p>

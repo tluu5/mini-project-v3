@@ -5,31 +5,11 @@ body {
   background-color: pink;
 }
 
-header {
+#dashboard-header, #edit-header, #login-header, #new-show-header, #register-header, #show-header {
   background-color: pink;
   color: slateblue;
   padding: 20px;
   text-align: center;
-}
-
-nav {
-  background-color: peachpuff;
-  color: slateblue;
-  padding: 10px;
-}
-
-nav a {
-  margin-right: 15px;
-  text-decoration: none;
-  color: slateblue;
-  font-weight: bold;
-}
-
-section {
-  margin: 20px;
-  padding: 20px;
-  background-color: slateblue;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 table {
@@ -49,7 +29,7 @@ th {
   color: slateblue;
 }
 
-form {
+#edit-section, #login-section, #new-show-section, #register-section {
   max-width: 400px;
   margin: 20px auto;
   padding: 20px;
@@ -75,28 +55,7 @@ textarea {
   box-sizing: border-box;
 }
 
-button {
-  background-color: pink;
-  color: slateblue;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: pink;
-}
-
-.show-container {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: slateblue;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-footer {
+#dashboard-footer, #edit-footer, #new-show-footer, #show-footer {
   background-color: peachpuff;
   color: slateblue;
   padding: 10px;
