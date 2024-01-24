@@ -1,0 +1,19 @@
+<h1>Search Results</h1>
+
+<section>
+  <% if @results.any? %>
+    <ul>
+      <% @results.each do |result| %>
+        <li><%= result['title'] || result['name'] %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No results found.</p>
+  <% end %>
+</section>
+
+<a href="/dashboard">TV Shows</a>
+
+<form action="/logout" method="post">
+  <input type="submit" value="Logout">
+</form>

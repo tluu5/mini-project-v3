@@ -145,3 +145,16 @@ get '/delete/:id' do
   # Redirect back to the dashboard
   redirect '/dashboard'
 end
+
+post '/search' do
+  search_query = params[:search_query]
+
+  # Make API call to TMDB search endpoint
+  api_url = "http://api.themoviedb.org/3/search/multi?query=#{search_query}&api_key=#{ENV["TMDB_KEY"]}"
+  raw_data = HTTP.get(api_url)
+  raw_data_string = raw_data.to_s
+  parsed_data = JSON.parse(raw_data_string)
+  @results = parsed_data.fetch("results")
+
+  erb :search_results
+end
