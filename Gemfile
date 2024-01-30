@@ -8,6 +8,7 @@ gem "sinatra-contrib"
 gem "bcrypt"
 gem "rackup"
 gem "dotenv"
+gem "http"
 
 # Use Puma as the app server
 gem "puma" #, "~> 5.0"
