@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="public/styles.css"
-<h1 id="new-show-header">Add a New Show</h1>
+<h1>Add a New Show</h1>
 
 <% if @error_messages %>
   <p style="color: red;"><%= @error_messages.join('<br>') %></p>
 <% end %>
 
-<form id="new-show-section" action="/new_show" method="post">
+<form action="/new_show" method="post">
   <label for="title">Title:</label>
   <input type="text" name="title" required minlength="3"><br>
 
@@ -23,6 +23,6 @@
 
 <a href="/dashboard">TV Shows</a>
 
-<form id="new-show-footer" action="/logout" method="post">
+<form action="/logout" method="post">
   <input type="submit" value="Logout">
 </form>

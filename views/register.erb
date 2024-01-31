@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="public/styles.css"
-<h1 id="register-header">Register</h1>
+<h1>Register</h1>
 
 <% if @error_messages %>
   <p style="color: red;"><%= @error_messages.join('<br>') %></p>
 <% end %>
 
-<form id="register-section" action="/register" method="post">
+<form action="/register" method="post">
   <label for="first_name">First Name:</label>
   <input type="text" name="first_name" required minlength="3"><br>
 

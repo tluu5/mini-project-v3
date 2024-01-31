@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="public/styles.css"
-<h1 id="dashboard-header">Howdy, <%= @user.first_name %>!!!</h1>
+<h1>Howdy, <%= @user.first_name %>!!!</h1>
 
-<h2 id="dashboard-header">All TV Shows</h2>
+<h2>All TV Shows</h2>
 
-<table border="1">
+<table>
   <thead>
     <tr>
       <th>Title</th>
@@ -40,6 +40,6 @@
 
 <a href="/new_show">Add a New Show</a>
 
-<form id="dashboard-footer" action="/logout" method="post">
+<form action="/logout" method="post">
   <input type="submit" value="Logout">
 </form>
